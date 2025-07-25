@@ -1,41 +1,91 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Bonito</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Dracula Verde</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
     <style>
+      /* Cores do tema Dracula com contraste verde */
+      :root {
+        --background: #282a36;
+        --current-line: #44475a;
+        --foreground: #f8f8f2;
+        --comment: #6272a4;
+        --cyan: #8be9fd;
+        --green: #2ee85c;      /* verde vibrante */
+        --orange: #ffb86c;
+        --pink: #ff79c6;
+        --purple: #bd93f9;
+        --red: #ff5555;
+        --yellow: #f1fa8c;
+      }
+
       body {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background-color: var(--background);
+        color: var(--foreground);
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
+
       .login-container {
-        background: white;
+        background-color: var(--current-line);
         padding: 2rem 3rem;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         width: 100%;
         max-width: 400px;
       }
-      .btn-primary {
-        background: #764ba2;
-        border: none;
+
+      h2 {
+        color: var(--green);
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-weight: 700;
       }
+
+      label {
+        color: var(--foreground);
+        font-weight: 600;
+      }
+
+      .form-control {
+        background-color: var(--background);
+        border: 1px solid var(--comment);
+        color: var(--foreground);
+      }
+
+      .form-control:focus {
+        background-color: var(--background);
+        border-color: var(--green);
+        box-shadow: 0 0 8px var(--green);
+        color: var(--foreground);
+      }
+
+      .btn-primary {
+        background-color: var(--green);
+        border: none;
+        font-weight: 700;
+      }
+
       .btn-primary:hover {
-        background: #5a3480;
+        background-color: #2f7942; /* verde mais escuro */
+      }
+
+      .alert {
+        border-radius: 6px;
+        font-weight: 600; 
       }
     </style>
   </head>
   <body>
-
     <div class="login-container">
-      <h2 class="mb-4 text-center">Bem-vindo</h2>
+      <h2>Bem-vindo</h2>
 
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -50,17 +100,17 @@
       <form method="POST">
         <div class="mb-3">
           <label for="username" class="form-label">Usuário</label>
-          <input type="text" class="form-control" id="username" name="username" required autofocus>
+          <input type="text" class="form-control" id="username" name="username" required autofocus />
         </div>
         <div class="mb-4">
           <label for="password" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="password" name="password" required>
+          <input type="password" class="form-control" id="password" name="password" required />
         </div>
         <button type="submit" class="btn btn-primary w-100">Entrar</button>
       </form>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
